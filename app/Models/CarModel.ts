@@ -23,10 +23,16 @@ export default class CarModel extends BaseModel {
   public ano?: string
 
   @column()
-  public consumo?: number
-
+  public consumo_gas?: number
+  
   @column()
-  public numero_viagens?: number
+  public consumo_gas_road?: number
+  
+  @column()
+  public consumo_alc?: number
+  
+  @column()
+  public consumo_alc_road?: number
 
   @column.dateTime({ autoCreate: true })
   public createdAt: DateTime
@@ -38,6 +44,7 @@ export default class CarModel extends BaseModel {
   public static async createUUID (model: CarModel) {
     model.uuid = uuid()
   }
+
 }
 
 /**

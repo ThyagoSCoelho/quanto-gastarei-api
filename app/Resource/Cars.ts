@@ -21,6 +21,23 @@ export default class Cars {
         return await CarModel.create(car);
     }
 
+    public async createMany(body: any[]) {
+
+        let validation: String[] = []
+        const cars = body.map((car) => {
+            return {
+                modelo: car.CarModel,
+                ano: car.CarYear,
+                consumo_gas: car.AutoCityGas,
+                consumo_gas_road: car.AutoCityAlc,
+                consumo_alc: car.AutoRoadGas,
+                consumo_alc_road: car.AutoRoadAlc,
+            }
+        })
+
+        return await CarModel.createMany(cars);
+    }
+
     public async search(body: any) {
         if (body.uuid) return 'É preciso passar o Uuid';
         const car = await CarModel.findBy('uuid', body.uuid);

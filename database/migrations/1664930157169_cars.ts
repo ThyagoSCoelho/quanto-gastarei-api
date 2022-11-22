@@ -9,10 +9,12 @@ export default class extends BaseSchema {
       table.uuid('uuid').index()
 
       table.string('marca').nullable()
-      table.decimal('consumo').nullable()
       table.string('modelo').nullable()
       table.string('ano').nullable()
-      table.decimal('numero_viagens').nullable()
+      table.decimal('consumo_gas').nullable()
+      table.decimal('consumo_gas_road').nullable()
+      table.decimal('consumo_alc').nullable()
+      table.decimal('consumo_alc_road').nullable()
 
       /**
        * Uses timestamptz for PostgreSQL and DATETIME2 for MSSQL
